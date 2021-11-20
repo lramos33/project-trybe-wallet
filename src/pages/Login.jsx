@@ -19,13 +19,6 @@ class Login extends Component {
     };
   }
 
-  checkInputs() {
-    const { email, password } = this.state;
-    const minLength = 6;
-    const EMAIL_REGEX = /\S+@\S+\.\S+/;
-    return (EMAIL_REGEX.test(email) && password.length >= minLength);
-  }
-
   onInputChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value }, () => {
@@ -38,6 +31,13 @@ class Login extends Component {
     const { email } = this.state;
     loginComponentDispatch(email);
     history.push('/carteira');
+  }
+
+  checkInputs() {
+    const { email, password } = this.state;
+    const minLength = 6;
+    const EMAIL_REGEX = /\S+@\S+\.\S+/;
+    return (EMAIL_REGEX.test(email) && password.length >= minLength);
   }
 
   render() {
