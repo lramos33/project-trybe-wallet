@@ -9,12 +9,12 @@ class Input extends Component {
         <input
           type={ type }
           name={ name }
-          placeholder= { placeholder }
+          placeholder={ placeholder }
           data-testid={ testid }
           onChange={ onChange }
         />
       </label>
-    )
+    );
   }
 }
 

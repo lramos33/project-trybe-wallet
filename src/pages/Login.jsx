@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Input from '../components/Input';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Input from '../components/Input';
 import { emailAction } from '../actions';
 
 class Login extends Component {
@@ -21,7 +22,7 @@ class Login extends Component {
   checkInputs() {
     const { email, password } = this.state;
     const minLength = 6;
-    const EMAIL_REGEX = /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const EMAIL_REGEX = /\S+@\S+\.\S+/;
     return (EMAIL_REGEX.test(email) && password.length >= minLength);
   }
 
@@ -33,7 +34,7 @@ class Login extends Component {
   }
 
   onSubmitButtonClick() {
-    const { history, loginComponentDispatch } = this.props
+    const { history, loginComponentDispatch } = this.props;
     const { email } = this.state;
     loginComponentDispatch(email);
     history.push('/carteira');
@@ -67,12 +68,19 @@ class Login extends Component {
           </button>
         </form>
       </fieldset>
-    )
+    );
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loginComponentDispatch: (email) => dispatch(emailAction(email))
+  loginComponentDispatch: (email) => dispatch(emailAction(email)),
 });
+
+Login.propTypes = {
+  loginComponentDispatch: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(Login);
