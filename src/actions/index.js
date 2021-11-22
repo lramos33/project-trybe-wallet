@@ -1,2 +1,2 @@
 export const emailAction = (email) => ({ type: 'EMAIL', email });
-export const passwordAction = (state) => ({ type: 'PASSWORD', state });
+export const expenseAction = (expenseData) => ({ type: 'EXPENSE', expenseData });

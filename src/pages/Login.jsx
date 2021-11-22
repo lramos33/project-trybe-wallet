@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Input from '../components/Input';
+import Input from '../components/subcomponents/Input';
 import { emailAction } from '../actions';
 
 class Login extends Component {
@@ -9,7 +9,7 @@ class Login extends Component {
     super(props);
 
     this.onInputChange = this.onInputChange.bind(this);
-    this.onSubmitButtonClick = this.onSubmitButtonClick.bind(this);
+    this.onButtonClick = this.onButtonClick.bind(this);
     this.checkInputs = this.checkInputs.bind(this);
 
     this.state = {
@@ -26,10 +26,10 @@ class Login extends Component {
     });
   }
 
-  onSubmitButtonClick() {
-    const { history, loginComponentDispatch } = this.props;
+  onButtonClick() {
+    const { history, loginDispatch } = this.props;
     const { email } = this.state;
-    loginComponentDispatch(email);
+    loginDispatch(email);
     history.push('/carteira');
   }
 
@@ -48,21 +48,21 @@ class Login extends Component {
           <Input
             type="email"
             name="email"
-            placeholder="Email"
+            labelName="Email"
             testid="email-input"
             onChange={ this.onInputChange }
           />
           <Input
             type="password"
             name="password"
-            placeholder="Password"
+            labelName="Password"
             testid="password-input"
             onChange={ this.onInputChange }
           />
           <button
             type="button"
             disabled={ isDisabled }
-            onClick={ this.onSubmitButtonClick }
+            onClick={ this.onButtonClick }
           >
             Entrar
           </button>
@@ -73,11 +73,11 @@ class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loginComponentDispatch: (email) => dispatch(emailAction(email)),
+  loginDispatch: (email) => dispatch(emailAction(email)),
 });
 
 Login.propTypes = {
-  loginComponentDispatch: PropTypes.func.isRequired,
+  loginDispatch: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
