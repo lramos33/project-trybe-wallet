@@ -3,7 +3,15 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { classParagraph, classInput, type, name, onChange, testid, labelName } = this.props;
+    const {
+      classParagraph,
+      classInput,
+      type,
+      name,
+      onChange,
+      testid,
+      labelName,
+    } = this.props;
     return (
       <label htmlFor={ name }>
         <p className={ classParagraph }>{ labelName }</p>
@@ -20,6 +28,8 @@ class Input extends Component {
 }
 
 Input.propTypes = {
+  classParagraph: PropTypes.string.isRequired,
+  classInput: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

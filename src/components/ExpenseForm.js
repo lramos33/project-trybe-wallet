@@ -24,19 +24,6 @@ class ExpenseForm extends Component {
     };
   }
 
-  createObjectToDispatch() {
-    const { id, value, currency, method, tag, description } = this.state;
-    return {
-      id,
-      value,
-      description,
-      currency,
-      method,
-      tag,
-      exchangeRates: {},
-    }
-  }
-
   onInputChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
@@ -47,10 +34,23 @@ class ExpenseForm extends Component {
     const expenseData = this.createObjectToDispatch();
     expenseDispatch(expenseData);
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
       id: prevState.id + 1,
     }));
+  }
+
+  createObjectToDispatch() {
+    const { id, value, currency, method, tag, description } = this.state;
+    return {
+      id,
+      value,
+      description,
+      currency,
+      method,
+      tag,
+      exchangeRates: {},
+    };
   }
 
   render() {
@@ -59,35 +59,35 @@ class ExpenseForm extends Component {
     const tagData = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
     return (
       <div>
-        <Input 
+        <Input
           type="number"
           name="value"
           labelName="Valor"
           testid="value-input"
           onChange={ this.onInputChange }
         />
-        <Select 
+        <Select
           name="currency"
           data={ currencyData }
           testid="currency-input"
           labelName="Moeda"
           onChange={ this.onInputChange }
         />
-        <Select 
+        <Select
           name="method"
           data={ methodData }
           testid="method-input"
           labelName="Método de pagamento"
           onChange={ this.onInputChange }
         />
-        <Select 
+        <Select
           name="tag"
           data={ tagData }
           testid="tag-input"
           labelName="Tag"
           onChange={ this.onInputChange }
         />
-        <Input 
+        <Input
           type="text"
           name="description"
           labelName="Descrição"

@@ -5,7 +5,7 @@ import Input from '../components/subcomponents/Input';
 import { emailAction } from '../actions';
 
 import '../App.css';
-import trybeLogo from '../images/trybe-logo.png'
+import trybeLogo from '../images/trybe-logo.png';
 
 class Login extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class Login extends Component {
       <body id="login-page-body">
         <fieldset id="login-page-fieldset">
           <form id="login-page-form">
-            <img src={ trybeLogo } alt="Logo da Trybe" width="250px" id="login-page-logo" />
+            <img src={ trybeLogo } alt="Trybe logo" width="250px" id="login-page-logo" />
             <Input
               classParagraph="loginPageParagraph"
               classInput="loginPageInput"
