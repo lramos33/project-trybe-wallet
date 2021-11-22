@@ -46,13 +46,13 @@ class Login extends Component {
   render() {
     const { isDisabled } = this.state;
     return (
-      <body id="login-page-body">
-        <fieldset id="login-page-fieldset">
-          <form id="login-page-form">
+      <body className="login-page-body">
+        <fieldset className="login-page-fieldset">
+          <form className="login-page-form">
             <img src={ trybeLogo } alt="Trybe logo" width="250px" id="login-page-logo" />
             <Input
-              classParagraph="loginPageParagraph"
-              classInput="loginPageInput"
+              classParagraph="login-page-paragraph"
+              classInput="login-page-input"
               type="email"
               name="email"
               labelName="Email"
@@ -60,8 +60,8 @@ class Login extends Component {
               onChange={ this.onInputChange }
             />
             <Input
-              classParagraph="loginPageParagraph"
-              classInput="loginPageInput"
+              classParagraph="login-page-paragraph"
+              classInput="login-page-input"
               type="password"
               name="password"
               labelName="Password"
@@ -69,7 +69,7 @@ class Login extends Component {
               onChange={ this.onInputChange }
             />
             <button
-              id="login-page-enter-button"
+              className="login-page-enter-button"
               type="button"
               disabled={ isDisabled }
               onClick={ this.onButtonClick }

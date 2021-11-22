@@ -1,58 +1,58 @@
 /* Login page style */
-.loginPageInput {
-  width: 250px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+.login-page-input {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  display: inline-block;
   font-size: 14px;
+  margin: 8px 0;
+  padding: 12px 20px;
+  width: 250px;
 }
 
-.loginPageParagraph {
+.login-page-paragraph {
   margin: 0;
 }
 
-#login-page-body {
-  min-height: 100vh;
+.login-page-body {
+  align-items: center;
   background-color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
+  min-height: 100vh;
 }
 
-#login-page-form {
-  margin: 30px;
+.login-page-form {
+  align-items: center;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  margin: 30px;
 }
 
-#login-page-logo {
+.login-page-logo {
   margin-bottom: 30px;
 }
 
-#login-page-fieldset {
+.login-page-fieldset {
   border-radius: 10px;
 }
 
-#login-page-enter-button {
-  width: 250px;
-  margin-top: 5px;
-  font-size: 16px;
-  background-color: rgba(15,163,107,255);
+.login-page-enter-button {
+  background-color: rgba(15, 163, 107, 255);
   border: none;
   color: white;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 5px;
   padding: 15px 32px;
   text-align: center;
-  cursor: pointer;
+  width: 250px;
 }
 
-#login-page-enter-button:disabled {
-  opacity: 0.7;
+.login-page-enter-button:disabled {
   cursor: not-allowed;
+  opacity: 0.7;
 }
 
 /* Wallet page style */
