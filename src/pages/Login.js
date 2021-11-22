@@ -49,7 +49,7 @@ class Login extends Component {
       <body className="login-page-body">
         <fieldset className="login-page-fieldset">
           <form className="login-page-form">
-            <img src={ trybeLogo } alt="Trybe logo" width="250px" id="login-page-logo" />
+            <img src={ trybeLogo } alt="Trybe logo" className="login-page-logo" />
             <Input
               classParagraph="login-page-paragraph"
               classInput="login-page-input"

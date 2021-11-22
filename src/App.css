@@ -32,6 +32,7 @@
 
 .login-page-logo {
   margin-bottom: 30px;
+  width: 250px;
 }
 
 .login-page-fieldset {
@@ -56,3 +57,103 @@
 }
 
 /* Wallet page style */
+
+/* Header */
+.wallet-page-logo {
+  margin-right: 500px;
+  width: 190px;
+}
+
+.wallet-page-header {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+/* Form */
+.wallet-form {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+}
+
+.wallet-form-label {
+  display: flex;
+}
+
+.wallet-form-paragraph {
+  margin-right: 10px;
+}
+
+.wallet-form-input-value {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 0 10px;
+  width: 80px;
+}
+
+.wallet-form-select-currency {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 0 10px;
+  width: 80px;
+}
+
+.wallet-form-select-method {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 0 10px;
+  width: 160px;
+}
+
+.wallet-form-select-tag {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 0 10px;
+  width: 160px;
+}
+
+.wallet-form-input-description {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 0;
+  padding: 0 10px;
+  width: 240px;
+}
+
+.wallet-form-button {
+  background-color: rgba(15, 163, 107, 255);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 0;
+  text-align: center;
+  width: 240px;
+}

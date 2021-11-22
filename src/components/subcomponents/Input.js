@@ -6,6 +6,7 @@ class Input extends Component {
     const {
       classParagraph,
       classInput,
+      classLabel,
       type,
       name,
       onChange,
@@ -13,7 +14,7 @@ class Input extends Component {
       labelName,
     } = this.props;
     return (
-      <label htmlFor={ name }>
+      <label htmlFor={ name } className={ classLabel }>
         <p className={ classParagraph }>{ labelName }</p>
         <input
           className={ classInput }
@@ -30,6 +31,7 @@ class Input extends Component {
 Input.propTypes = {
   classParagraph: PropTypes.string.isRequired,
   classInput: PropTypes.string.isRequired,
+  classLabel: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

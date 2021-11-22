@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ExpenseForm from '../components/ExpenseForm';
+import WalletForm from '../components/WalletForm';
 import Header from '../components/Header';
 
 class Wallet extends Component {
@@ -14,7 +14,7 @@ class Wallet extends Component {
           expenses={ 0 }
           exchange="BRL"
         />
-        <ExpenseForm />
+        <WalletForm />
       </div>
     );
   }

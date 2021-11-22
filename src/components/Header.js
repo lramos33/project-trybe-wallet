@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import trybeLogo from '../images/trybe-logo.png';
 
 class Header extends Component {
   render() {
     const { email, expenses, exchange } = this.props;
     return (
-      <header>
+      <header className="wallet-page-header">
+        <img src={ trybeLogo } alt="Trybe logo" className="wallet-page-logo" />
         <p data-testid="email-field">
           { `Email: ${email}` }
         </p>
