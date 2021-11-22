@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import Input from '../components/subcomponents/Input';
 import { emailAction } from '../actions';
 
+import '../App.css';
+import trybeLogo from '../images/trybe-logo.png'
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -43,31 +46,39 @@ class Login extends Component {
   render() {
     const { isDisabled } = this.state;
     return (
-      <fieldset>
-        <form>
-          <Input
-            type="email"
-            name="email"
-            labelName="Email"
-            testid="email-input"
-            onChange={ this.onInputChange }
-          />
-          <Input
-            type="password"
-            name="password"
-            labelName="Password"
-            testid="password-input"
-            onChange={ this.onInputChange }
-          />
-          <button
-            type="button"
-            disabled={ isDisabled }
-            onClick={ this.onButtonClick }
-          >
-            Entrar
-          </button>
-        </form>
-      </fieldset>
+      <body id="login-page-body">
+        <fieldset id="login-page-fieldset">
+          <form id="login-page-form">
+            <img src={ trybeLogo } alt="Logo da Trybe" width="250px" id="login-page-logo" />
+            <Input
+              classParagraph="loginPageParagraph"
+              classInput="loginPageInput"
+              type="email"
+              name="email"
+              labelName="Email"
+              testid="email-input"
+              onChange={ this.onInputChange }
+            />
+            <Input
+              classParagraph="loginPageParagraph"
+              classInput="loginPageInput"
+              type="password"
+              name="password"
+              labelName="Password"
+              testid="password-input"
+              onChange={ this.onInputChange }
+            />
+            <button
+              id="login-page-enter-button"
+              type="button"
+              disabled={ isDisabled }
+              onClick={ this.onButtonClick }
+            >
+              Entrar
+            </button>
+          </form>
+        </fieldset>
+      </body>
     );
   }
 }

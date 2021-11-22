@@ -1,41 +1,56 @@
-.App {
+/* Login page style */
+.loginPageInput {
+  width: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.loginPageParagraph {
+  margin: 0;
+}
+
+#login-page-body {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-page-form {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#login-page-logo {
+  margin-bottom: 30px;
+}
+
+#login-page-fieldset {
+  border-radius: 10px;
+}
+
+#login-page-enter-button {
+  width: 250px;
+  margin-top: 5px;
+  background-color: rgba(15,163,107,255);
+  border: none;
+  color: white;
+  padding: 15px 32px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#login-page-enter-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Wallet page style */
