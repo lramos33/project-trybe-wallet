@@ -157,3 +157,25 @@
   text-align: center;
   width: 240px;
 }
+
+/* Expenses table */
+.full-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-head {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  font-size: 16px;
+  height: 40px;
+}
+
+.table-line {
+  height: 40px;
+  text-align: center;
+}
+
+.table-line:nth-child( even ) {
+  background-color: #f2f2f2;
+}

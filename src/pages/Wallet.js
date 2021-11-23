@@ -13,7 +13,7 @@ class Wallet extends Component {
       const exchangeRate = expense.exchangeRates[currency].ask;
       return (value * exchangeRate);
     }).reduce((a, b) => a + b, 0);
-    return (Math.round(result * 100) / 100).toFixed(2);
+    return Number(result).toFixed(2);
   }
 
   render() {
