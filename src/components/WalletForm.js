@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './subcomponents/Input';
 import Select from './subcomponents/Select';
-import { expenseAction } from '../actions';
+import { expenseAction, fetchAPI } from '../actions';
 
 class WalletForm extends Component {
   constructor(props) {
@@ -24,24 +24,32 @@ class WalletForm extends Component {
     };
   }
 
+  async componentDidMount() {
+    const { priceDispatch } = this.props;
+    await priceDispatch();
+  }
+
   onInputChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
 
-  onButtonClick() {
+  async onButtonClick() {
     const { expenseDispatch } = this.props;
-    const expenseData = this.createObjectToDispatch();
+    const expenseData = await this.createObjectToDispatch();
     expenseDispatch(expenseData);
-
     this.setState((prevState) => ({
       ...prevState,
       id: prevState.id + 1,
     }));
   }
 
-  createObjectToDispatch() {
+  async createObjectToDispatch() {
     const { id, value, currency, method, tag, description } = this.state;
+    const { priceDispatch } = this.props;
+    const responseAPI = await priceDispatch();
+    const { data } = responseAPI;
+
     return {
       id,
       value,
@@ -49,7 +57,7 @@ class WalletForm extends Component {
       currency,
       method,
       tag,
-      exchangeRates: {},
+      exchangeRates: data,
     };
   }
 
@@ -68,16 +76,16 @@ class WalletForm extends Component {
       />
     );
   }
-
+  
   currencySelect() {
-    const currencyData = [];
+    const { currencies } = this.props;
     return (
       <Select
         classParagraph="wallet-form-paragraph"
         classSelect="wallet-form-select-currency"
         classLabel="wallet-form-label"
         name="currency"
-        data={ currencyData }
+        data={ currencies }
         testid="currency-input"
         labelName="Moeda:"
         onChange={ this.onInputChange }
@@ -152,12 +160,18 @@ class WalletForm extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  currencies: state.wallet.currencies,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   expenseDispatch: (expenseData) => dispatch(expenseAction(expenseData)),
+  priceDispatch: () => dispatch((fetchAPI())),
 });
 
 WalletForm.propTypes = {
   expenseDispatch: PropTypes.func.isRequired,
+  priceDispatch: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(WalletForm);
+export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);

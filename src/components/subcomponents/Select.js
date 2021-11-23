@@ -19,7 +19,7 @@ class Select extends Component {
         <select onChange={ onChange } name={ name } className={ classSelect }>
           {
             data.map((optionData, index) => (
-              <option value={ optionData } key={ index }>{ optionData }</option>
+              <option value={ optionData } key={ index } data-testid={ optionData }>{ optionData }</option>
             ))
           }
         </select>
