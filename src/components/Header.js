@@ -23,7 +23,7 @@ class Header extends Component {
 Header.propTypes = {
   email: PropTypes.string.isRequired,
   exchange: PropTypes.string.isRequired,
-  expenses: PropTypes.number.isRequired,
+  expenses: PropTypes.string.isRequired,
 };
 
 export default Header;

@@ -21,7 +21,7 @@ class Input extends Component {
         <p className={ classParagraph }>{ labelName }</p>
         <input
           className={ classInput }
-          value= { value }
+          value={ value }
           type={ type }
           name={ name }
           data-testid={ testid }
@@ -36,6 +36,7 @@ Input.propTypes = {
   classParagraph: PropTypes.string.isRequired,
   classInput: PropTypes.string.isRequired,
   classLabel: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

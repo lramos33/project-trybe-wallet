@@ -5,13 +5,23 @@ import WalletForm from '../components/WalletForm';
 import Header from '../components/Header';
 
 class Wallet extends Component {
+  sumExpenses(expenses) {
+    const result = expenses.map((expense) => {
+      const value = parseFloat(expense.value);
+      const { currency } = expense;
+      const exchangeRate = expense.exchangeRates[currency].ask;
+      return (value * exchangeRate);
+    }).reduce((a, b) => a + b, 0);
+    return (Math.round(result * 100) / 100).toFixed(2);
+  }
+
   render() {
-    const { email, totalExpenses } = this.props;
+    const { email, expenses } = this.props;
     return (
       <div>
         <Header
           email={ email }
-          expenses={ totalExpenses }
+          expenses={ this.sumExpenses(expenses) }
           exchange="BRL"
         />
         <WalletForm />
@@ -22,11 +32,12 @@ class Wallet extends Component {
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
-  totalExpenses: state.wallet.totalExpenses,
+  expenses: state.wallet.expenses,
 });
 
 Wallet.propTypes = {
   email: PropTypes.string.isRequired,
+  expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default connect(mapStateToProps, null)(Wallet);

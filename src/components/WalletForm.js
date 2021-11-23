@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './subcomponents/Input';
 import Select from './subcomponents/Select';
-import { expenseAction, totalExpenseAction, fetchAPI } from '../actions';
+import { expenseAction, fetchAPI } from '../actions';
 
 class WalletForm extends Component {
   constructor(props) {
@@ -18,45 +18,28 @@ class WalletForm extends Component {
       value: 0,
       description: '',
       totalExpense: 0,
-      // Definido como state inicial por conta do default select
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
     };
   }
 
+  // Monta o array currencies para ser utilizado no select
   async componentDidMount() {
     const { priceDispatch } = this.props;
     await priceDispatch();
   }
 
+  // Função padrão de input change
   onInputChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
 
-  sumAllExpenses(expenseData) {
-    const { totalExpenseDispatch } = this.props;
-    
-    const expenseAmountInChosenCurrency = expenseData.value;
-    const chosenCurrency = expenseData.currency;
-    const currentExchange = expenseData.exchangeRates[chosenCurrency].ask;
-    const amountInBRL = expenseAmountInChosenCurrency * currentExchange;
-    const roundedAmount = parseFloat((Math.round(amountInBRL * 100) / 100).toFixed(2));
-    this.setState((prevState) => ({
-      ...prevState,
-      totalExpense: prevState.totalExpense + roundedAmount,
-    }));
-    
-    const { totalExpense } = this.state;
-    console.log(totalExpense);
-    totalExpenseDispatch(totalExpense);
-  }
-
+  // Despacha a despesa para o estado global, atualiza o id e volta para estado inicial do componente
   async onButtonClick() {
     const { expenseDispatch } = this.props;
     const expenseData = await this.createObjectToDispatch();
-    this.sumAllExpenses(expenseData);
     expenseDispatch(expenseData);
     this.setState((prevState) => ({
       ...prevState,
@@ -66,12 +49,12 @@ class WalletForm extends Component {
     }));
   }
 
+  // Retorna um objeto no formato correto para o dispatch
   async createObjectToDispatch() {
     const { id, value, currency, method, tag, description } = this.state;
     const { priceDispatch } = this.props;
     const responseAPI = await priceDispatch();
     const { data } = responseAPI;
-
     return {
       id,
       value,
@@ -83,9 +66,9 @@ class WalletForm extends Component {
     };
   }
 
-  // Functions to render
+  // ALL FUNCTIONS TO RENDER
   valueInput() {
-    const { value } = this.state
+    const { value } = this.state;
     return (
       <Input
         classParagraph="wallet-form-paragraph"
@@ -100,7 +83,7 @@ class WalletForm extends Component {
       />
     );
   }
-  
+
   currencySelect() {
     const { currencies } = this.props;
     return (
@@ -192,11 +175,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   expenseDispatch: (expenseData) => dispatch(expenseAction(expenseData)),
-  totalExpenseDispatch: ((totalExpense) => dispatch(totalExpenseAction(totalExpense))),
   priceDispatch: () => dispatch((fetchAPI())),
 });
 
 WalletForm.propTypes = {
+  currencies: PropTypes.arrayOf(PropTypes.object).isRequired,
   expenseDispatch: PropTypes.func.isRequired,
   priceDispatch: PropTypes.func.isRequired,
 };
