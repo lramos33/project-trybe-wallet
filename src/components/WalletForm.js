@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from './subcomponents/Input';
 import Select from './subcomponents/Select';
-import { expenseAction, fetchAPI } from '../actions';
+import { expenseAction, totalExpenseAction, fetchAPI } from '../actions';
 
 class WalletForm extends Component {
   constructor(props) {
@@ -15,10 +15,11 @@ class WalletForm extends Component {
 
     this.state = {
       id: 0,
-      value: '',
-      currency: '',
+      value: 0,
       description: '',
-      // Definido uns state inicial por conta do default select
+      totalExpense: 0,
+      // Definido como state inicial por conta do default select
+      currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
     };
@@ -34,12 +35,33 @@ class WalletForm extends Component {
     this.setState({ [name]: value });
   }
 
+  sumAllExpenses(expenseData) {
+    const { totalExpenseDispatch } = this.props;
+    
+    const expenseAmountInChosenCurrency = expenseData.value;
+    const chosenCurrency = expenseData.currency;
+    const currentExchange = expenseData.exchangeRates[chosenCurrency].ask;
+    const amountInBRL = expenseAmountInChosenCurrency * currentExchange;
+    const roundedAmount = parseFloat((Math.round(amountInBRL * 100) / 100).toFixed(2));
+    this.setState((prevState) => ({
+      ...prevState,
+      totalExpense: prevState.totalExpense + roundedAmount,
+    }));
+    
+    const { totalExpense } = this.state;
+    console.log(totalExpense);
+    totalExpenseDispatch(totalExpense);
+  }
+
   async onButtonClick() {
     const { expenseDispatch } = this.props;
     const expenseData = await this.createObjectToDispatch();
+    this.sumAllExpenses(expenseData);
     expenseDispatch(expenseData);
     this.setState((prevState) => ({
       ...prevState,
+      value: 0,
+      description: '',
       id: prevState.id + 1,
     }));
   }
@@ -62,12 +84,14 @@ class WalletForm extends Component {
   }
 
   // Functions to render
-  paragraphInput() {
+  valueInput() {
+    const { value } = this.state
     return (
       <Input
         classParagraph="wallet-form-paragraph"
         classInput="wallet-form-input-value"
         classLabel="wallet-form-label"
+        value={ value }
         type="number"
         name="value"
         labelName="Valor:"
@@ -126,11 +150,13 @@ class WalletForm extends Component {
   }
 
   descriptionInput() {
+    const { description } = this.state;
     return (
       <Input
         classParagraph="wallet-form-paragraph"
         classInput="wallet-form-input-description"
         classLabel="wallet-form-label"
+        value={ description }
         type="text"
         name="description"
         labelName="Descrição:"
@@ -143,7 +169,7 @@ class WalletForm extends Component {
   render() {
     return (
       <div className="wallet-form">
-        { this.paragraphInput() }
+        { this.valueInput() }
         { this.currencySelect() }
         { this.methodSelect() }
         { this.tagSelect() }
@@ -166,6 +192,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   expenseDispatch: (expenseData) => dispatch(expenseAction(expenseData)),
+  totalExpenseDispatch: ((totalExpense) => dispatch(totalExpenseAction(totalExpense))),
   priceDispatch: () => dispatch((fetchAPI())),
 });
 

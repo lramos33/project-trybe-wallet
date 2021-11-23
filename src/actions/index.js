@@ -1,5 +1,6 @@
 export const emailAction = (email) => ({ type: 'EMAIL', email });
 export const expenseAction = (expenseData) => ({ type: 'EXPENSE', expenseData });
+export const totalExpenseAction = (totalExpenses) => ({ type: 'TOTAL_EXPENSE', totalExpenses });
 
 export const requestAPI = () => ({ type: 'REQUEST_API' });
 export const getPrice = (data) => ({ type: 'GET_PRICE', data });

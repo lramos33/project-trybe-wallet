@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 class Input extends Component {
   render() {
     const {
+      // Props para css
       classParagraph,
       classInput,
       classLabel,
+      // Props para aplicação
       type,
+      value,
       name,
       onChange,
       testid,
@@ -18,6 +21,7 @@ class Input extends Component {
         <p className={ classParagraph }>{ labelName }</p>
         <input
           className={ classInput }
+          value= { value }
           type={ type }
           name={ name }
           data-testid={ testid }

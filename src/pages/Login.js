@@ -44,7 +44,7 @@ class Login extends Component {
   }
 
   render() {
-    const { isDisabled } = this.state;
+    const { email, password, isDisabled } = this.state;
     return (
       <body className="login-page-body">
         <fieldset className="login-page-fieldset">
@@ -53,6 +53,7 @@ class Login extends Component {
             <Input
               classParagraph="login-page-paragraph"
               classInput="login-page-input"
+              value={ email }
               type="email"
               name="email"
               labelName="Email"
@@ -62,6 +63,7 @@ class Login extends Component {
             <Input
               classParagraph="login-page-paragraph"
               classInput="login-page-input"
+              value={ password }
               type="password"
               name="password"
               labelName="Password"

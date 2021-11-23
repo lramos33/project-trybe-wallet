@@ -14,9 +14,9 @@ class Select extends Component {
       onChange,
     } = this.props;
     return (
-      <label htmlFor={ name } data-testid={ testid } className={ classLabel }>
+      <label htmlFor={ name } className={ classLabel }>
         <p className={ classParagraph }>{ labelName }</p>
-        <select onChange={ onChange } name={ name } className={ classSelect }>
+        <select id={ name } onChange={ onChange } name={ name } data-testid={ testid } className={ classSelect }>
           {
             data.map((optionData, index) => (
               <option value={ optionData } key={ index } data-testid={ optionData }>{ optionData }</option>

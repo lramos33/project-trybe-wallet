@@ -6,12 +6,12 @@ import Header from '../components/Header';
 
 class Wallet extends Component {
   render() {
-    const { email } = this.props;
+    const { email, totalExpenses } = this.props;
     return (
       <div>
         <Header
           email={ email }
-          expenses={ 0 }
+          expenses={ totalExpenses }
           exchange="BRL"
         />
         <WalletForm />
@@ -22,6 +22,7 @@ class Wallet extends Component {
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
+  totalExpenses: state.wallet.totalExpenses,
 });
 
 Wallet.propTypes = {
