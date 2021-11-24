@@ -7,7 +7,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
   case 'EMAIL':
     return {
       ...state,
-      email: action.email,
+      email: action.value,
     };
   default:
     return state;

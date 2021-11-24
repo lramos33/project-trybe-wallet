@@ -36,7 +36,10 @@ Input.propTypes = {
   classParagraph: PropTypes.string.isRequired,
   classInput: PropTypes.string.isRequired,
   classLabel: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

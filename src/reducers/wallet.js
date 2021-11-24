@@ -8,8 +8,9 @@ const walletReducer = (state = INITIAL_STATE, action) => {
   case 'EXPENSE':
     return {
       ...state,
-      expenses: [...state.expenses, action.expenseData],
+      expenses: [...state.expenses, action.value],
     };
+
   case 'GET_PRICE': {
     // Filtra apenas a key do retorno da API e adiciona ela na chave 'currencies' do estado
     const currencyArray = Object.keys(action.data);
@@ -19,6 +20,13 @@ const walletReducer = (state = INITIAL_STATE, action) => {
       currencies: filteredCurrencies,
     };
   }
+
+  case 'DELETE_EXPENSE':
+    return {
+      ...state,
+      expenses: [...state.expenses.filter((expense) => expense.id !== action.id)],
+    };
+
   default:
     return state;
   }

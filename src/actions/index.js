@@ -1,7 +1,8 @@
-export const emailAction = (email) => ({ type: 'EMAIL', email });
-export const expenseAction = (expenseData) => ({ type: 'EXPENSE', expenseData });
+export const emailAction = (value) => ({ type: 'EMAIL', value });
+export const expenseAction = (value) => ({ type: 'EXPENSE', value });
 export const requestAPI = () => ({ type: 'REQUEST_API' });
 export const getPrice = (data) => ({ type: 'GET_PRICE', data });
+export const deleteExpense = (id) => ({ type: 'DELETE_EXPENSE', id });
 
 export const fetchAPI = () => (dispatch) => {
   dispatch(requestAPI());
