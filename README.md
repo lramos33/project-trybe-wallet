@@ -10,6 +10,12 @@ Clone o repositório:
 git clone git@github.com:lramos33/project-trybe-wallet.git
 ```
 
+Acesse a pasta do repositório
+
+```
+cd project-trybe-wallet
+```
+
 Instale as dependências:
 ```
 npm install
