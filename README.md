@@ -54,7 +54,10 @@ Nesse projeto foi desenvolvido uma carteira de controle de gastos com conversor 
 - [x] 5. Implemente a lógica para preencher as opções do campo "Moedas" buscando as siglas da API;
 - [x] 6. Desenvolva uma tabela com os gastos;
 - [x] 7. Implemente a lógica para que a tabela seja alimentada pelo estado da aplicação;
-- [x] 8. Crie um botão para deletar uma despesa da tabela;
+- [x] 8. Crie um botão para deletar uma despesa da tabela.
+
+#### Requisitos bônus:
+
 - [ ] 9. Crie um botão para editar uma despesa da tabela.
 
 
