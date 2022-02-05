@@ -45,15 +45,22 @@ Nesse projeto foi desenvolvido uma carteira de controle de gastos com conversor 
 
 ![image]()
 
-## ✅ Requisitos do projeto
+## 📝 Requisitos do projeto
 
 - [x] 1. Crie uma página inicial de login;
+
 - [x] 2. Crie uma página para sua carteira;
+
 - [x] 3. Crie um header para a página da carteira;
+
 - [x] 4. Desenvolva um formulário para adicionar uma despesa;
+
 - [x] 5. Implemente a lógica para preencher as opções do campo "Moedas" buscando as siglas da API;
+
 - [x] 6. Desenvolva uma tabela com os gastos;
+
 - [x] 7. Implemente a lógica para que a tabela seja alimentada pelo estado da aplicação;
+
 - [x] 8. Crie um botão para deletar uma despesa da tabela.
 
 #### Requisitos bônus:
