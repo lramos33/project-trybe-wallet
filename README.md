@@ -63,7 +63,7 @@ Nesse projeto foi desenvolvido uma carteira de controle de gastos com conversor 
 
 - [x] 8. Crie um botão para deletar uma despesa da tabela.
 
-#### Requisitos bônus:
+### Requisitos bônus:
 
 - [ ] 9. Crie um botão para editar uma despesa da tabela.
 
