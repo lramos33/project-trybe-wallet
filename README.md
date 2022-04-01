@@ -1,6 +1,6 @@
 <h1 align="center">Project Trybe Wallet</h1>
 
-<p align="center">⏳ In progress</p>
+<p align="center">✔️ Concluded</p>
 
 ## 💻 Instalando o projeto
 
@@ -62,11 +62,6 @@ Nesse projeto foi desenvolvido uma carteira de controle de gastos com conversor 
 - [x] 7. Implemente a lógica para que a tabela seja alimentada pelo estado da aplicação;
 
 - [x] 8. Crie um botão para deletar uma despesa da tabela.
-
-### Requisitos bônus:
-
-- [ ] 9. Crie um botão para editar uma despesa da tabela.
-
 
 ##
 
