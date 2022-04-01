@@ -43,7 +43,7 @@ Nesse projeto foi desenvolvido uma carteira de controle de gastos com conversor 
 - Visualizar uma tabelas com seus gastos;
 - Visualizar o total de gastos convertidos para uma moeda de escolha.
 
-![image]()
+![image](recording.gif)
 
 ## 📝 Requisitos do projeto
 
